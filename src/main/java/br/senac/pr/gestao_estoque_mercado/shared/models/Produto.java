@@ -1,13 +1,13 @@
 package main.java.br.senac.pr.gestao_estoque_mercado.shared.models;
 
-public class Produtos {
+public class Produto {
   private Long id;
   private String descricao;
   private String marca;
   private String tipo;
   private double saldo;
 
-  public Produtos(Long id, String descricao, String marca, String tipo, double saldo) {
+  public Produto(Long id, String descricao, String marca, String tipo, double saldo) {
     this.id = id;
     this.descricao = descricao;
     this.marca = marca;
