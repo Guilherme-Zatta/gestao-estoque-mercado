@@ -1,0 +1,20 @@
+meta {
+  name: Criar produto
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/produtos
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "descricao":"iPhone",
+    "marca": "Apple",
+    "tipo":"smartphone",
+    "saldo": 10
+  }
+}

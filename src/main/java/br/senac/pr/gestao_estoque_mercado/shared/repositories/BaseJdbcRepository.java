@@ -1,5 +1,4 @@
-package main.java.br.senac.pr.gestao_estoque_mercado.shared.repositories;
-
+package br.senac.pr.gestao_estoque_mercado.shared.repositories;
 import java.util.List;
 import java.util.Optional;
 

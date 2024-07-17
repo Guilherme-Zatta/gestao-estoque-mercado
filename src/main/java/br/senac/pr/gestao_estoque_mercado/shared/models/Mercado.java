@@ -1,4 +1,4 @@
-package main.java.br.senac.pr.gestao_estoque_mercado.shared.models;
+package br.senac.pr.gestao_estoque_mercado.shared.models;
 
 public class Mercado {
     private Long id;
@@ -7,7 +7,7 @@ public class Mercado {
     private String cidade;
     private double cnpj;
     private double ie;
-  
+
     public Mercado(Long id, String nome, String endereco, String cidade, double cnpj, double ie) {
         this.id = id;
         this.nome = nome;
@@ -65,6 +65,4 @@ public class Mercado {
         this.ie = ie;
     }
 
-
-    
 }

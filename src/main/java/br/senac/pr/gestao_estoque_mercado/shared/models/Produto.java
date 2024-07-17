@@ -1,6 +1,11 @@
-package main.java.br.senac.pr.gestao_estoque_mercado.shared.models;
+package br.senac.pr.gestao_estoque_mercado.shared.models;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+
+@Table("produtos")
 public class Produto {
+  @Id
   private Long id;
   private String descricao;
   private String marca;

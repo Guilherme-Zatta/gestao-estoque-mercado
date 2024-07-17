@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "gestao-estoque-mercado",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
