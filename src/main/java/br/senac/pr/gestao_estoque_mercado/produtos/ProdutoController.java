@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.senac.pr.gestao_estoque_mercado.produtos.dto.CreateProdutoDto;
+import br.senac.pr.gestao_estoque_mercado.produtos.dto.UpdateProdutoDto;
 import br.senac.pr.gestao_estoque_mercado.produtos.dto.UpdateSaldoProdutoDto;
 import br.senac.pr.gestao_estoque_mercado.produtos.impl.ProdutoServiceImpl;
 import br.senac.pr.gestao_estoque_mercado.shared.models.Produto;
@@ -53,6 +55,14 @@ public class ProdutoController {
 // PATCH - Atualização parcial
     @PatchMapping("/{id}")
     public ResponseEntity<String> updateSaldoProduto(@RequestBody UpdateSaldoProdutoDto dto,
+        @PathVariable Long id) {
+            produtoService.update(dto, id);
+            return ResponseEntity.ok().build();
+        }
+
+// PUT - Atualização completa
+    @PutMapping("/{id}")
+    public ResponseEntity<Produto> updateProduto(@RequestBody UpdateProdutoDto dto,
         @PathVariable Long id) {
             produtoService.update(dto, id);
             return ResponseEntity.ok().build();

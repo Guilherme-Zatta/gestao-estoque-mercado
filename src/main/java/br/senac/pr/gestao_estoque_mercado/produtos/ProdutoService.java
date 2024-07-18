@@ -3,6 +3,7 @@ package br.senac.pr.gestao_estoque_mercado.produtos;
 import java.util.List;
 
 import br.senac.pr.gestao_estoque_mercado.produtos.dto.CreateProdutoDto;
+import br.senac.pr.gestao_estoque_mercado.produtos.dto.UpdateProdutoDto;
 import br.senac.pr.gestao_estoque_mercado.produtos.dto.UpdateSaldoProdutoDto;
 import br.senac.pr.gestao_estoque_mercado.shared.models.Produto;
 
@@ -16,6 +17,8 @@ public interface ProdutoService {
     public void update(Produto object);
 
     public void update(UpdateSaldoProdutoDto dto, Long id);
+
+    public void update(UpdateProdutoDto dto, Long id);
 
     public void deleteById(Long id);
 }

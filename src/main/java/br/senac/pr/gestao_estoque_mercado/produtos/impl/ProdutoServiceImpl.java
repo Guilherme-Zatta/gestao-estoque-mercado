@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import br.senac.pr.gestao_estoque_mercado.produtos.ProdutoRepository;
 import br.senac.pr.gestao_estoque_mercado.produtos.ProdutoService;
 import br.senac.pr.gestao_estoque_mercado.produtos.dto.CreateProdutoDto;
+import br.senac.pr.gestao_estoque_mercado.produtos.dto.UpdateProdutoDto;
 import br.senac.pr.gestao_estoque_mercado.produtos.dto.UpdateSaldoProdutoDto;
 import br.senac.pr.gestao_estoque_mercado.shared.models.Produto;
 
@@ -41,9 +42,16 @@ public class ProdutoServiceImpl implements ProdutoService {
     }
 
     @Override
-    public void update(Produto object) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+    public void update(UpdateProdutoDto dto, Long id) {
+        Produto produto = produtoRepository.findById(id).get();
+        if (produto == null) {
+            throw new Error("Produto não existe!");
+        }
+        produto.setDescricao(dto.getDescricao());
+        produto.setMarca(dto.getMarca());
+        produto.setTipo(dto.getTipo());
+        produto.setSaldo(dto.getSaldo());
+        produtoRepository.save(produto);
     }
 
     @Override
@@ -56,9 +64,16 @@ public class ProdutoServiceImpl implements ProdutoService {
         produtoRepository.save(produto);
     }
 
+
     public void updateSaldoProduto(Produto produto) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'updateSaldoProduto'");
+    }
+
+    @Override
+    public void update(Produto object) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
     
