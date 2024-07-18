@@ -1,11 +1,17 @@
 meta {
-  name: Obter Produto por ID
+  name: Atualizar Saldo Produto
   type: http
-  seq: 2
+  seq: 4
 }
 
-get {
+patch {
   url: http://localhost:8080/produtos/1
   body: json
   auth: none
+}
+
+body:json {
+  {
+    "saldo": 150
+  }
 }
