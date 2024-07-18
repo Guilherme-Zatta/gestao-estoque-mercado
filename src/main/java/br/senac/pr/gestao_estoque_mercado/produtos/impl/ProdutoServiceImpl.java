@@ -26,8 +26,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 
     @Override
     public List<Produto> findAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+        return produtoRepository.findAll();
     }
 
     @Override
@@ -41,5 +40,7 @@ public class ProdutoServiceImpl implements ProdutoService {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
     }
+
+    
 
 }
