@@ -1,6 +1,10 @@
 package br.senac.pr.gestao_estoque_mercado.mercados;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,5 +28,22 @@ public class MercadoController {
     public ResponseEntity<Mercado> save(@RequestBody CreateMercadoDto dto) {
         var saved = this.mercadoService.save(dto);
         return ResponseEntity.ok(saved);
+    }
+
+// GET - Listar todos os mercados
+    @GetMapping("")
+    public List<Mercado> getMercados() {
+        return mercadoService.findAll();
+    }
+
+// GET - Listar mercador por ID
+    @GetMapping("/{id}")
+    public ResponseEntity<Mercado> getMercadoById(@PathVariable Long id) {
+        var mercado = mercadoService.findById(id);
+        if (mercado == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok().body(mercado);
     }
 }

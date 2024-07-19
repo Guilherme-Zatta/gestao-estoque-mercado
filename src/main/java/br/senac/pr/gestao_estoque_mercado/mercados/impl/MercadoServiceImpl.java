@@ -26,14 +26,12 @@ public class MercadoServiceImpl implements MercadoService{
 
     @Override
     public List<Mercado> findAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+        return mercadoRepository.findAll();
     }
 
     @Override
     public Mercado findById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+        return mercadoRepository.findById(id).orElse(null);
     }
 
     @Override
