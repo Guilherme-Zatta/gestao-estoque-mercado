@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import br.senac.pr.gestao_estoque_mercado.mercados.MercadoRepository;
 import br.senac.pr.gestao_estoque_mercado.mercados.MercadoService;
 import br.senac.pr.gestao_estoque_mercado.mercados.dto.CreateMercadoDto;
+import br.senac.pr.gestao_estoque_mercado.mercados.dto.UpdateEnderecoMercadoDto;
 import br.senac.pr.gestao_estoque_mercado.shared.models.Mercado;
 
 @Service
@@ -35,9 +36,15 @@ public class MercadoServiceImpl implements MercadoService{
     }
 
     @Override
-    public void update(Mercado object) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+    public void update(UpdateEnderecoMercadoDto dto, Long id) {
+        Mercado mercado = mercadoRepository.findById(id).get();
+        if (mercado == null) {
+            throw new Error("Mercado não existe!");
+        }
+        mercado.setEndereco(dto.endereco());
+        mercado.setCidade(dto.cidade());
+        mercado.setEstado(dto.estado());
+        mercadoRepository.save(mercado);
     }
 
     @Override

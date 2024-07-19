@@ -1,0 +1,19 @@
+meta {
+  name: Atualizar Parcial Mercado
+  type: http
+  seq: 4
+}
+
+patch {
+  url: http://localhost:8080/mercados/3
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "endereco": "Rua dos Tongos",
+    "cidade": "Francisco Beltrão",
+    "estado": "PR"
+  }
+}

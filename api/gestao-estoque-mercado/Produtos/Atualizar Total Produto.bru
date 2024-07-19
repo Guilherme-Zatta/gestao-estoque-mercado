@@ -1,17 +1,20 @@
 meta {
   name: Atualizar Total Produto
   type: http
-  seq: 4
+  seq: 5
 }
 
-patch {
-  url: http://localhost:8080/produtos/1
+put {
+  url: http://localhost:8080/produtos/3
   body: json
   auth: none
 }
 
 body:json {
   {
+    "descricao": "OUTRO",
+    "marca": "DIFERENTE",
+    "tipo": "HORTIFRUTI",
     "saldo": 150
   }
 }
