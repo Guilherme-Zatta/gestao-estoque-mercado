@@ -1,0 +1,22 @@
+meta {
+  name: Criar Mercado
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/mercados
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nome": "PONTO QUENTE",
+    "endereco": "AVENIDA TUPY",
+    "cidade": "PATO BRANCO",
+    "estado": "PR",
+    "cnpj": 87456987000125,
+    "ie": 8521479
+  }
+}

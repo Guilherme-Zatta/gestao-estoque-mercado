@@ -1,18 +1,25 @@
 package br.senac.pr.gestao_estoque_mercado.shared.models;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+
+@Table("mercados")
 public class Mercado {
+    @Id
     private Long id;
     private String nome;
     private String endereco;
     private String cidade;
+    private String estado;
     private double cnpj;
     private double ie;
 
-    public Mercado(Long id, String nome, String endereco, String cidade, double cnpj, double ie) {
+    public Mercado(Long id, String nome, String endereco, String cidade, String estado, double cnpj, double ie) {
         this.id = id;
         this.nome = nome;
         this.endereco = endereco;
         this.cidade = cidade;
+        this.estado = estado;
         this.cnpj = cnpj;
         this.ie = ie;
     }
@@ -49,6 +56,14 @@ public class Mercado {
         this.cidade = cidade;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
     public double getCnpj() {
         return cnpj;
     }
@@ -64,5 +79,7 @@ public class Mercado {
     public void setIe(double ie) {
         this.ie = ie;
     }
+
+    
 
 }
