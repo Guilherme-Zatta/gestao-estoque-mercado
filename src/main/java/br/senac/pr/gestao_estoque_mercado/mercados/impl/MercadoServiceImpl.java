@@ -42,7 +42,6 @@ public class MercadoServiceImpl implements MercadoService{
 
     @Override
     public void deleteById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
+        mercadoRepository.deleteById(id);
     }
 }

@@ -3,6 +3,7 @@ package br.senac.pr.gestao_estoque_mercado.mercados;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,5 +46,12 @@ public class MercadoController {
         }
 
         return ResponseEntity.ok().body(mercado);
+    }
+
+// DELETE - Exclusão
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteMercado(@PathVariable Long id) {
+        mercadoService.deleteById(id);
+        return ResponseEntity.ok().build();
     }
 }
