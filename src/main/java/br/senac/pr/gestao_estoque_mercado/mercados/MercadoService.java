@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.senac.pr.gestao_estoque_mercado.mercados.dto.CreateMercadoDto;
 import br.senac.pr.gestao_estoque_mercado.mercados.dto.UpdateEnderecoMercadoDto;
+import br.senac.pr.gestao_estoque_mercado.mercados.dto.UpdateMercadoDto;
 import br.senac.pr.gestao_estoque_mercado.shared.models.Mercado;
 
 public interface MercadoService {
@@ -13,7 +14,11 @@ public interface MercadoService {
     
     public Mercado findById(Long id);
 
+    public void update(Mercado object);
+
     public void update(UpdateEnderecoMercadoDto dto, Long id);
+
+    public void update(UpdateMercadoDto dto, Long id);
 
     public void deleteById(Long id);
     

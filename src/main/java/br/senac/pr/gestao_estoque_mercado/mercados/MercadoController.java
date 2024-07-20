@@ -8,12 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.senac.pr.gestao_estoque_mercado.mercados.dto.CreateMercadoDto;
 import br.senac.pr.gestao_estoque_mercado.mercados.dto.UpdateEnderecoMercadoDto;
+import br.senac.pr.gestao_estoque_mercado.mercados.dto.UpdateMercadoDto;
 import br.senac.pr.gestao_estoque_mercado.mercados.impl.MercadoServiceImpl;
 import br.senac.pr.gestao_estoque_mercado.shared.models.Mercado;
 
@@ -51,9 +53,16 @@ public class MercadoController {
     }
 
 // PATCH - Atualização parcial
-
     @PatchMapping("/{id}")
     public ResponseEntity<String> updateEnderecoMercado(@RequestBody UpdateEnderecoMercadoDto dto,
+        @PathVariable Long id) {
+            mercadoService.update(dto, id);
+            return ResponseEntity.ok().build();
+        }
+
+// PUT - Atualização Completa
+    @PutMapping("/{id}")
+    public ResponseEntity<Mercado> updateMercado(@RequestBody UpdateMercadoDto dto,
         @PathVariable Long id) {
             mercadoService.update(dto, id);
             return ResponseEntity.ok().build();

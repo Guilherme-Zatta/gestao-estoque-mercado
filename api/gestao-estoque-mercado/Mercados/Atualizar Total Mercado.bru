@@ -1,0 +1,22 @@
+meta {
+  name: Atualizar Total Mercado
+  type: http
+  seq: 5
+}
+
+patch {
+  url: http://localhost:8080/mercados/3
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nome": "MERCADINHO DO ZÉ",
+    "endereco": "DO LADO DA BODEGA",
+    "cidade": "FIM DO MUNDO",
+    "estado": "RR",
+    "cnpj": 12123123000123,
+    "ie": 3219876541
+  }
+}
