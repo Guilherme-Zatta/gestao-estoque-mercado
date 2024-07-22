@@ -22,7 +22,8 @@ public class ProdutoServiceImpl implements ProdutoService {
 
     @Override
     public Produto save(CreateProdutoDto dto) {
-        var produto = new Produto(null, dto.descricao(), dto.marca(), dto.tipo(), dto.saldo());
+        var produto = new Produto(null, dto.descricao(), 
+        dto.marca(), dto.tipo(), dto.saldo());
         return this.produtoRepository.save(produto);
     }
 

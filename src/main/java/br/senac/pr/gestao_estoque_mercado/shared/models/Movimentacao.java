@@ -13,10 +13,10 @@ public class Movimentacao {
     private Long produtoId;
     private LocalDateTime dataHora;
     private Character tipoMovimentacao;
-    private Double quantidade;
+    private double quantidade;
 
-    public Movimentacao(Long id, Long mercadoId, Long produtoId, Character tipoMovimentacao,
-            Double quantidade) {
+    public Movimentacao(Long id, Long mercadoId, Long produtoId, LocalDateTime dataHora,
+    Character tipoMovimentacao, double quantidade) {
         this.id = id;
         this.mercadoId = mercadoId;
         this.produtoId = produtoId;
@@ -65,11 +65,11 @@ public class Movimentacao {
         this.tipoMovimentacao = tipoMovimentacao;
     }
 
-    public Double getQuantidade() {
+    public double getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(Double quantidade) {
+    public void setQuantidade(double quantidade) {
         this.quantidade = quantidade;
     }
 

@@ -14,7 +14,8 @@ public class Mercado {
     private double cnpj;
     private double ie;
 
-    public Mercado(Long id, String nome, String endereco, String cidade, String estado, double cnpj, double ie) {
+    public Mercado(Long id, String nome, String endereco, String cidade, String estado, 
+            double cnpj, double ie) {
         this.id = id;
         this.nome = nome;
         this.endereco = endereco;
