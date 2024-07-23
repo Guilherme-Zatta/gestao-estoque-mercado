@@ -23,9 +23,16 @@ public class MovimentacaoServiceImpl implements MovimentacaoService{
 
     @Override
     public Movimentacao save(CreateMovimentacaoDto dto) {
+        // Procurar o produto e validar se ele existe
+
+        // Se o produto existir e se for uma movimentação de saída, validar se o produto tem saldo disponível
+        // Se for uma movimentação de entrada, ajusta o saldo e segue cadastrando a movimentação
+
+        // Atualizo o saldo do produto (produtoRepository.save - equivalente a um patch no saldo do produto)
         var movimentacao = new Movimentacao(null, dto.mercadoId(), dto.produtoId(), 
         LocalDateTime.now(), dto.tipoMovimentacao(), dto.quantidade());
         return this.movimentacaoRepository.save(movimentacao);
+
     }
 
     @Override
