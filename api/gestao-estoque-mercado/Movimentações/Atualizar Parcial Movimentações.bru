@@ -1,0 +1,18 @@
+meta {
+  name: Atualizar Parcial Movimentações
+  type: http
+  seq: 4
+}
+
+patch {
+  url: http://localhost:8080/movimentacoes/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "tipoMovimentacao": "S",
+    "quantidade": 50
+  }
+}

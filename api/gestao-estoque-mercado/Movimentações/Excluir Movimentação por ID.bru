@@ -1,0 +1,11 @@
+meta {
+  name: Excluir Movimentação por ID
+  type: http
+  seq: 6
+}
+
+delete {
+  url: http://localhost:8080/movimentacoes/2
+  body: json
+  auth: none
+}

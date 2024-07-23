@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import br.senac.pr.gestao_estoque_mercado.movimentacao.MovimentacaoRepository;
 import br.senac.pr.gestao_estoque_mercado.movimentacao.MovimentacaoService;
 import br.senac.pr.gestao_estoque_mercado.movimentacao.dtos.CreateMovimentacaoDto;
+import br.senac.pr.gestao_estoque_mercado.movimentacao.dtos.UpdateMovimentacaoDto;
+import br.senac.pr.gestao_estoque_mercado.movimentacao.dtos.UpdateQtdeMovimentacaoDto;
 import br.senac.pr.gestao_estoque_mercado.shared.models.Movimentacao;
 
 @Service
@@ -33,14 +35,12 @@ public class MovimentacaoServiceImpl implements MovimentacaoService{
 
     @Override
     public Movimentacao findById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+        return movimentacaoRepository.findById(id).orElse(null);
     }
 
     @Override
     public void deleteById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
+        movimentacaoRepository.deleteById(id);
     }
 
     @Override
@@ -48,5 +48,29 @@ public class MovimentacaoServiceImpl implements MovimentacaoService{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
-    
+
+    @Override
+    public void update(UpdateQtdeMovimentacaoDto dto, Long id) {
+        Movimentacao movimentacao = movimentacaoRepository.findById(id).get();
+        if (movimentacao == null) {
+            throw new Error("Movimentação não existe!");            
+        }
+        movimentacao.setTipoMovimentacao(dto.tipoMovimentacao());
+        movimentacao.setQuantidade(dto.quantidade());
+        movimentacaoRepository.save(movimentacao);
+    }
+
+    @Override
+    public void update(UpdateMovimentacaoDto dto, Long id) {
+        Movimentacao movimentacao = movimentacaoRepository.findById(id).get();
+        if (movimentacao == null) {
+            throw new Error("Movimentação não existe!");
+        }
+        movimentacao.setMercadoId(dto.mercadoId());
+        movimentacao.setProdutoId(dto.produtoId());
+        movimentacao.setTipoMovimentacao(dto.tipoMovimentacao());
+        movimentacao.setQuantidade(dto.quantidade());
+        movimentacaoRepository.save(movimentacao);
+    }
+
 }
