@@ -20,7 +20,7 @@ public class Movimentacao {
         this.id = id;
         this.mercadoId = mercadoId;
         this.produtoId = produtoId;
-        this.dataHora = LocalDateTime.now();
+        this.dataHora = dataHora;
         this.tipoMovimentacao = tipoMovimentacao;
         this.quantidade = quantidade;
     }

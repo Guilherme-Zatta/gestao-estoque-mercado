@@ -53,7 +53,7 @@ public class MovimentacaoController {
 
         return ResponseEntity.ok().body(movimentacao);
     }
-
+/* 
 // PATCH - Atualização Parcial
     @PatchMapping("/{id}")
     public ResponseEntity<String> updateQtdeMovimentacao(@RequestBody UpdateQtdeMovimentacaoDto dto,
@@ -69,7 +69,7 @@ public class MovimentacaoController {
             movimentacaoService.update(dto, id);
             return ResponseEntity.ok().build();
         }
-
+*/
 // DELETE - Exclusão
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteMovimentacao(@PathVariable Long id) {
