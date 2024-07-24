@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import br.senac.pr.gestao_estoque_mercado.movimentacao.MovimentacaoRepository;
 import br.senac.pr.gestao_estoque_mercado.movimentacao.MovimentacaoService;
 import br.senac.pr.gestao_estoque_mercado.movimentacao.dtos.CreateMovimentacaoDto;
+import br.senac.pr.gestao_estoque_mercado.movimentacao.dtos.SaldoProdutoMercadoDto;
 import br.senac.pr.gestao_estoque_mercado.movimentacao.dtos.UpdateMovimentacaoDto;
 import br.senac.pr.gestao_estoque_mercado.movimentacao.dtos.UpdateQtdeMovimentacaoDto;
 import br.senac.pr.gestao_estoque_mercado.movimentacao.types.TipoMovimentacaoEnum;
@@ -100,6 +101,11 @@ public class MovimentacaoServiceImpl implements MovimentacaoService{
         movimentacao.setTipoMovimentacao(dto.tipoMovimentacao());
         movimentacao.setQuantidade(dto.quantidade());
         movimentacaoRepository.save(movimentacao);
+    }
+
+    @Override
+    public SaldoProdutoMercadoDto getSaldoByProdutoAndMercado(Long produtoId, Long mercadoId) {
+        return movimentacaoRepository.getSaldoProdutoMercado(produtoId, mercadoId);
     }
 
 }

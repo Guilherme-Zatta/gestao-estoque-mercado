@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.senac.pr.gestao_estoque_mercado.movimentacao.dtos.CreateMovimentacaoDto;
-
+import br.senac.pr.gestao_estoque_mercado.movimentacao.dtos.SaldoProdutoMercadoDto;
 import br.senac.pr.gestao_estoque_mercado.movimentacao.impl.MovimentacaoServiceImpl;
 import br.senac.pr.gestao_estoque_mercado.shared.models.Movimentacao;
 
@@ -72,6 +72,13 @@ public class MovimentacaoController {
     public ResponseEntity<String> deleteMovimentacao(@PathVariable Long id) {
         movimentacaoService.deleteById(id);
         return ResponseEntity.ok().build();
+    }
+
+
+    @GetMapping("/{produtoId}/{mercadoId}")
+    public ResponseEntity<SaldoProdutoMercadoDto> getSaldoByProdutoAndMercado(@PathVariable Long produtoId, @PathVariable Long mercadoId){
+        var saldoDto = movimentacaoService.getSaldoByProdutoAndMercado(produtoId, mercadoId);
+        return ResponseEntity.ok(saldoDto);
     }
 
 }
